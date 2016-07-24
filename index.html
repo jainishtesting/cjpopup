@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>cjpopup demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="cjpopup.css" rel="stylesheet" />
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="cjpopup.js"></script>
+    <script type="text/javascript">
+        function testcallback1() {
+            var a = 1;
+            var b = 2;
+            var c = a + b;
+            alert(c);
+        }
+        function testcallback2() {
+            var a = 1;
+            var b = 5;
+            var c = a + b;
+            alert(c);
+        }
+        function testcallback3() {
+            alert(111);
+        }
+        $(function () {
+            $('#btn1').cjpopup({
+                overlay: false,
+                title: 'Are You Sure',
+                message: 'Are you sure you want to confirm this?',
+                callbackfun: testcallback1
+            });
+            $('#btn2').cjpopup({
+                overlay: true,
+                title: 'Hi',
+                message: 'Hello cjpopup with overlay',
+                callbackfun: testcallback2
+            });
+            $('.btnc').cjpopup({
+                overlay: true,
+                callbackfun: testcallback3
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btn1" value="open" />
+    <input type="button" id="btn2" value="open2" />
+    <input type="button" class="btnc" value="open3" />
+    <input type="button" class="btnc" value="open4" />
+    <input type="button" class="btnclose" value="close" onclick="cjpopupclose()" />
+    <div style="width: 100%;">
+        hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. 
+        hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. 
+        hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. 
+        hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. 
+        hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. 
+        hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. hello sample text is here. 
+    </div>
+</body>
+</html>

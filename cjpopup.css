@@ -1,0 +1,280 @@
+/* ==========================================================================
+   cjmodal's necessary styles
+   ========================================================================== */
+
+/* Hide scroll bar */
+
+html.cjmodal-is-locked {
+    overflow: hidden;
+    touch-action: none;
+}
+
+/* Anti FOUC */
+
+.cjmodal,
+[data-cjmodal-id] {
+    display: none;
+}
+
+/* Necessary styles of the overlay */
+
+.cjmodal-overlay {
+    position: fixed;
+    z-index: 9999;
+    top: -5000px;
+    right: -5000px;
+    bottom: -5000px;
+    left: -5000px;
+    display: none;
+}
+
+/* Fix iPad, iPhone glitches */
+
+.cjmodal-overlay {
+    backface-visibility: hidden;
+}
+
+/* Necessary styles of the modal dialog */
+
+.cjmodal {
+    position: relative;
+    outline: none;
+    text-size-adjust: 100%;
+    z-index: 10000;
+    border: 1px solid rgba(207, 207, 208, 0.9);
+    top: 30%;
+    left: 50%;
+    position: fixed;
+    text-align: center;
+    margin-left: -350px;
+}
+
+.cjmodal-is-initialized {
+    /* Disable Anti-FOUC */
+    display: inline-block;
+}
+
+/* ==========================================================================
+   cjmodal's default mobile first theme
+   ========================================================================== */
+
+/* Default theme styles for the background */
+
+.cjmodal-bg.cjmodal-is-opening,
+.cjmodal-bg.cjmodal-is-opened {
+    filter: blur(3px);
+}
+
+/* Default theme styles of the overlay */
+
+.cjmodal-overlay {
+    background: rgba(43, 46, 56, 0.9);
+}
+
+    .cjmodal-overlay.cjmodal-is-opening,
+    .cjmodal-overlay.cjmodal-is-closing {
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+    }
+
+    .cjmodal-overlay.cjmodal-is-opening {
+        animation-name: cjmodal-overlay-opening-keyframes;
+    }
+
+    .cjmodal-overlay.cjmodal-is-closing {
+        animation-name: cjmodal-overlay-closing-keyframes;
+    }
+
+/* Default theme styles of the modal dialog */
+
+.cjmodal {
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 35px;
+    transform: translate3d(0, 0, 0);
+    color: #2b2e38;
+    background: #fff;
+}
+
+    .cjmodal.cjmodal-is-opening,
+    .cjmodal.cjmodal-is-closing {
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+    }
+
+    .cjmodal.cjmodal-is-opening {
+        animation-name: cjmodal-opening-keyframes;
+    }
+
+    .cjmodal.cjmodal-is-closing {
+        animation-name: cjmodal-closing-keyframes;
+    }
+
+    /* Vertical align of the modal dialog */
+
+    .cjmodal:after {
+        vertical-align: middle;
+    }
+
+/* Close button */
+
+.cjmodal-close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    overflow: visible;
+    width: 35px;
+    height: 35px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s;
+    text-decoration: none;
+    color: #95979c;
+    border: 0;
+    outline: 0;
+    background: transparent;
+}
+
+    .cjmodal-close:hover,
+    .cjmodal-close:focus {
+        color: #2b2e38;
+    }
+
+    .cjmodal-close:before {
+        font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif !important;
+        font-size: 25px;
+        line-height: 35px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 35px;
+        content: "\00d7";
+        text-align: center;
+    }
+
+/* Dialog buttons */
+
+.cjmodal-confirm,
+.cjmodal-cancel {
+    font: inherit;
+    display: inline-block;
+    overflow: visible;
+    min-width: 110px;
+    margin: 0;
+    padding: 12px 0;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    border: 0;
+    outline: 0;
+}
+
+.cjmodal-confirm {
+    color: #fff;
+    background: #81c784;
+}
+
+    .cjmodal-confirm:hover,
+    .cjmodal-confirm:focus {
+        background: #66bb6a;
+    }
+
+.cjmodal-cancel {
+    color: #fff;
+    background: #e57373;
+}
+
+    .cjmodal-cancel:hover,
+    .cjmodal-cancel:focus {
+        background: #ef5350;
+    }
+
+    /* Remove inner padding and border in Firefox 4+ for the button tag. */
+
+    .cjmodal-confirm::-moz-focus-inner,
+    .cjmodal-cancel::-moz-focus-inner,
+    .cjmodal-close::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+    }
+
+/* Keyframes
+   ========================================================================== */
+
+@keyframes cjmodal-opening-keyframes {
+    from {
+        transform: scale(1.05);
+        opacity: 0;
+    }
+
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@keyframes cjmodal-closing-keyframes {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+}
+
+@keyframes cjmodal-overlay-opening-keyframes {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cjmodal-overlay-closing-keyframes {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* Media queries
+   ========================================================================== */
+
+@media only screen and (min-width: 641px) {
+    .cjmodal {
+        max-width: 700px;
+    }
+}
+
+@media only screen and (max-width: 641px) {
+    .cjmodal {
+        width: 100%;
+        left: 0;
+        margin-left: 0;
+    }
+}
+
+/* IE8
+   ========================================================================== */
+
+.lt-ie9 .cjmodal-overlay {
+    background: #2b2e38;
+}
+
+.lt-ie9 .cjmodal {
+    width: 700px;
+}
